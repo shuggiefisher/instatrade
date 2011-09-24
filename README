@@ -1,9 +1,18 @@
-To recreate an environment for tornado:
+To recreate an replicatable environment for tornado:
 
 mkdir tornado
 cd tornado
 virtualenv --no-site-packages --distribute .
 
+# clone the repository
 git clone https://github.com/shuggiefisher/instatrade.git
 
+# activate the environment to ensure you use the environment's python binaries, and the system python binaries
+source bin/activate
+
+# install the tornado requirements into the environment
 pip install -r instatrade/requirements.txt
+
+# start the webserver
+cd instatrade
+python instatrade.py

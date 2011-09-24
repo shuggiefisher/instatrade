@@ -1,0 +1,9 @@
+To recreate an environment for tornado:
+
+mkdir tornado
+cd tornado
+virtualenv --no-site-packages --distribute .
+
+git clone 
+
+pip install -r 

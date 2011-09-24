@@ -1,0 +1,6 @@
+Markdown==2.0.3
+distribute==0.6.14
+ipython==0.11
+pymongo==2.0.1
+tornado==2.1
+wsgiref==0.1.2

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block head %}
+    
+{% end %}
+
+{% block body %}
+<div class="values">
+    <h1><a href="/tag/{{ stock['name'] }}">{{ escape(stock['name']) }}</a></h1>
+    <div class="body">
+    <h2>Daily values</h2>
+    <div id="graphdiv"></div>
+    <script type="text/javascript">
+        g = new Dygraph(
+      
+          // containing div
+          document.getElementById("graphdiv"),
+      
+          // CSV or path to a CSV file.
+          "Date,Temperature\n" +
+          "2008-05-07,75\n" +
+          "2008-05-08,70\n" +
+          "2008-05-09,80\n"
+      
+        );
+    </script>
+    {% for day_values in sentiment['daily'] %}
+        time: {{ day_values['time'] }},
+        positive : {{ day_values['positive'] }},
+        negative: {{ day_values['negative'] }},
+        neutral: {{ day_values['neutral'] }},
+        none: {{ day_values['none'] }}
+    {% end %}
+  </div>
+</div>
+{% end %}

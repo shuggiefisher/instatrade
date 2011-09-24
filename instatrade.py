@@ -63,12 +63,12 @@ class EntryModule(tornado.web.UIModule):
 class StockHandler(BaseHandler):
     def get(self, name):
         stock = list(self.db.stock.find({'name': name}))[0]
-        #values = list(self.db.values.find({'stock_id': stock['_id']}))[0]
+        values = list(self.db.values.find({'stock_id': stock['_id']}))[0]
         sentiment = list(self.db.sentiment.find({'stock_id': stock['_id']}))[0]
         for day_sentiments in sentiment['daily']:
             day_sentiments['time'] = datetime.datetime.fromtimestamp(int(day_sentiments['time'])).strftime('%Y-%m-%d')
         # if not values: raise tornado.web.HTTPError(404)
-        self.render("stock.html", stock=stock, sentiment=sentiment)
+        self.render("stock.html", stock=stock, values=values, sentiment=sentiment)
 
 def main():
     tornado.options.parse_command_line()

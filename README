@@ -4,6 +4,6 @@ mkdir tornado
 cd tornado
 virtualenv --no-site-packages --distribute .
 
-git clone 
+git clone https://github.com/shuggiefisher/instatrade.git
 
-pip install -r 
+pip install -r instatrade/requirements.txt
